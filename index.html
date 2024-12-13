@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoneBook</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        h1{
+            font-family: sans-serif;
+            font-size: 40px;
+            margin-top: 100px;
+        }
+        #search{
+           width: 300px;
+           height:30px;
+           border: 1px solid #ddd;
+           border-radius: 10px;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            border: none;
+            margin-top: 7px;
+            color: white;
+            background-color: #800000;
+            border-radius: 5px;
+        }
+        #result {
+            max-width: 600px;
+            margin: 20px auto;
+            font-size: 18px;
+            padding: 10px;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Phone Book 📞</h1>
+        <div class="search-input">
+            <input type="text" id="search" placeholder="Search Contacts...">
+            <button type="button" onclick="search()">Search</button>
+        </div>
+        <div id="result"></div>
+
+        <script>
+            const contacts={
+                sita:"9087654321",
+                ram:"1234561234",
+                rasika:"2134567890",
+                radha:"5678904321",
+                sham:"3456789087"
+            }
+            function search(){
+                const input=document.getElementById("search");
+                const query=input.value.toLowerCase();
+                const mobile=contacts[query]
+                const result=document.getElementById("result");
+                if(mobile){
+                    result.innerText= `${query} : ${mobile}`;
+                }
+                else{
+                    result.innerText="Contact not found";
+                }
+            }
+        </script>
+    </body>
+</html>
